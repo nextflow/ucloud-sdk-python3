@@ -633,3 +633,31 @@ class DeleteNetworkInterfaceResponseSchema(schema.ResponseSchema):
     fields = {
 
     }
+
+
+class AttachNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "Region"   : fields.Str(required=True, dump_to="Region"),
+        "InterfaceId"   : fields.Str(required=True, dump_to="InterfaceId"),
+        "InstanceId": fields.Str(required=True, dump_to="InstanceId"),
+    }
+
+
+class AttachNetworkInterfaceResponseSchema(schema.RequestSchema):
+    fields = {
+    }
+
+
+class DetachNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "ProjectId"  : fields.Str(required=True, dump_to="ProjectId"),
+        "Region"     : fields.Str(required=True, dump_to="Region"),
+        "InterfaceId": fields.Str(required=True, dump_to="InterfaceId"),
+        "InstanceId" : fields.Str(required=True, dump_to="InstanceId"),
+    }
+
+
+class DetachNetworkInterfaceResponseSchema(schema.RequestSchema):
+    fields = {
+    }

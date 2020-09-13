@@ -660,3 +660,23 @@ class VPCClient(Client):
 
         resp = self.invoke("DeleteNetworkInterface", d, **kwargs)
         return apis.DeleteNetworkInterfaceResponseSchema().loads(resp)
+
+    def attach_network_interface(
+        self, req: typing.Optional[dict] = None, **kwargs
+    ) -> dict:
+        d = {"ProjectId": self.config.project_id, "Region": self.config.region}
+        req and d.update(req)
+        d = apis.AttachNetworkInterfaceRequestSchema().dumps(d)
+
+        resp = self.invoke("AttachNetworkInterface", d, **kwargs)
+        return apis.AttachNetworkInterfaceResponseSchema().loads(resp)
+
+    def detach_network_interface(
+        self, req: typing.Optional[dict] = None, **kwargs
+    ) -> dict:
+        d = {"ProjectId": self.config.project_id, "Region": self.config.region}
+        req and d.update(req)
+        d = apis.DetachNetworkInterfaceRequestSchema().dumps(d)
+
+        resp = self.invoke("DetachNetworkInterface", d, **kwargs)
+        return apis.DetachNetworkInterfaceResponseSchema().loads(resp)

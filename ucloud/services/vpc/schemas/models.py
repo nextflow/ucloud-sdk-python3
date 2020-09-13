@@ -124,10 +124,18 @@ class VPCIntercomInfoSchema(schema.ResponseSchema):
 
 class VINCInfoSchema(schema.ResponseSchema):
     fields = {
-        "PrivateIpSet": fields.List(fields.Str()),
-        "Remark"         : fields.Str(required=True, load_from="Remark"),
-        "Status"         : fields.Int(required=True, load_from="Status"),
-        "SubnetId"         : fields.Str(required=True, load_from="SubnetId"),
-        "Tag"         : fields.Str(required=True, load_from="Tag"),
-        "VPCId"       : fields.Str(required=False, load_from="VPCId"),
+        "AttachInstanceId": fields.Str(required=True, load_from="AttachInstanceId"),
+        "Default"         : fields.Bool(required=True, load_from="Default"),
+        "FirewallIdSet"   : fields.List(fields.Str()),
+        "Gateway"         : fields.Str(required=True, load_from="Gateway"),
+        "InterfaceId"     : fields.Str(required=True, load_from="InterfaceId"),
+        "MacAddress"      : fields.Str(required=True, load_from="MacAddress"),
+        "Name"            : fields.Str(required=True, load_from="Name"),
+        "Netmask"         : fields.Str(required=True, load_from="Netmask"),
+        "PrivateIpSet"    : fields.List(fields.Str()),
+        "Remark"          : fields.Str(required=True, load_from="Remark"),
+        "Status"          : fields.Int(required=True, load_from="Status"),
+        "SubnetId"        : fields.Str(required=True, load_from="SubnetId"),
+        "Tag"             : fields.Str(required=True, load_from="Tag"),
+        "VPCId"           : fields.Str(required=False, load_from="VPCId"),
     }
