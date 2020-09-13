@@ -120,3 +120,14 @@ class VPCIntercomInfoSchema(schema.ResponseSchema):
         "Tag": fields.Str(required=False, load_from="Tag"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
     }
+
+
+class VINCInfoSchema(schema.ResponseSchema):
+    fields = {
+        "PrivateIpSet": fields.List(fields.Str()),
+        "Remark"         : fields.Str(required=True, load_from="Remark"),
+        "Status"         : fields.Int(required=True, load_from="Status"),
+        "SubnetId"         : fields.Str(required=True, load_from="SubnetId"),
+        "Tag"         : fields.Str(required=True, load_from="Tag"),
+        "VPCId"       : fields.Str(required=False, load_from="VPCId"),
+    }

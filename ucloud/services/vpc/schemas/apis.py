@@ -582,3 +582,54 @@ class UpdateVPCNetworkResponseSchema(schema.ResponseSchema):
     """
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+class DescribeNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "Limit"    : fields.Int(required=False, dump_to="Limit"),
+        "Offset"   : fields.Int(required=False, dump_to="Offset"),
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "Region"   : fields.Str(required=True, dump_to="Region"),
+    }
+
+
+class DescribeNetworkInterfaceResponseSchema(schema.ResponseSchema):
+    """ UpdateVPCNetwork - 更新VPC网段
+    """
+
+    fields = {
+        "NetworkInterfaceSet": fields.List(
+            models.VINCInfoSchema(), required=False, load_from="NetworkInterfaceSet"
+        )
+    }
+
+
+class CreateNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "Name": fields.Str(required=True, dump_to="Name"),
+        "SubnetId": fields.Str(required=True, dump_to="SubnetId"),
+        "VPCId": fields.Str(required=True, dump_to="VPCId"),
+        "Tag": fields.Str(required=True, dump_to="Tag"),
+    }
+
+
+class CreateNetworkInterfaceResponseSchema(schema.ResponseSchema):
+    fields = {
+        "NetworkInterface": models.VINCInfoSchema(required=True, load_from="NetworkInterface")
+    }
+
+
+class DeleteNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "InterfaceId": fields.Str(required=True, dump_to="InterfaceId"),
+    }
+
+
+class DeleteNetworkInterfaceResponseSchema(schema.ResponseSchema):
+    fields = {
+
+    }
