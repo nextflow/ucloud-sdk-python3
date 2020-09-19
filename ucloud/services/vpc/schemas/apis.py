@@ -622,6 +622,20 @@ class CreateNetworkInterfaceResponseSchema(schema.ResponseSchema):
     }
 
 
+class ModifyNetworkInterfaceRequestSchema(schema.RequestSchema):
+    fields = {
+        "Name"  : fields.Str(required=False),
+        "Remark"  : fields.Str(required=False),
+        "InterfaceId"  : fields.Str(required=False),
+    }
+
+
+class ModifyNetworkInterfaceResponseSchema(schema.ResponseSchema):
+    fields = {
+
+    }
+
+
 class DeleteNetworkInterfaceRequestSchema(schema.RequestSchema):
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
