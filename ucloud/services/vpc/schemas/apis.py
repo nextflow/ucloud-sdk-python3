@@ -612,6 +612,7 @@ class CreateNetworkInterfaceRequestSchema(schema.RequestSchema):
         "SubnetId": fields.Str(required=True, dump_to="SubnetId"),
         "VPCId": fields.Str(required=True, dump_to="VPCId"),
         "Tag": fields.Str(required=True, dump_to="Tag"),
+        "PrivateIp": fields.List(fields.Str()),
     }
 
 
